@@ -85,10 +85,11 @@ if (process.env.OPENSHIFT_MONGODB_DB_URL) {
     url = process.env.OPENSHIFT_MONGODB_DB_URL +
     process.env.OPENSHIFT_APP_NAME;
 }
+var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
 
 var options = {
-	user: "Applica",
-	pass: "ApplicaPass"
+	user: process.env[mongoServiceName + '_USER'],
+	pass: process.env[mongoServiceName + '_PASSWORD']
 }
 
 // Connect to mongodb
