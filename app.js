@@ -127,7 +127,7 @@ var initDb = function(callback){
     // dbDetails.type = 'MongoDB';
 
     console.log('Connected to MongoDB at: %s', mongoURL);
-  });
+  //});
 }
 
 initDb(function(err){
