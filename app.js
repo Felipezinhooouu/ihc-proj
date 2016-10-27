@@ -108,19 +108,23 @@ var db = null, dbDetails = new Object();
 var initDb = function(callback){
   if (mongoURL == null) return;
 
-  var mongodb = require('mongodb');
-  if (mongodb == null) return;
+  // var mongodb = require('mongodb');
+  // if (mongodb == null) return;
+  //
+  // mongodb.connect(mongoURL, function(err, conn){
+  //   if(err){
+  //     callback(err);
+  //     return;
+  //   }
 
-  mongodb.connect(mongoURL, function(err, conn){
-    if(err){
-      callback(err);
-      return;
-    }
+  mongoose.connect(mongoURL).then(() => {
+    console.log('connected!')
+  });
 
-    db = conn;
-    dbDetails.databaseName = b.databaseName;
-    dbDetails.url = mongoURLLabel;
-    dbDetails.type = 'MongoDB';
+    // db = conn;
+    // dbDetails.databaseName = db.databaseName;
+    // dbDetails.url = mongoURLLabel;
+    // dbDetails.type = 'MongoDB';
 
     console.log('Connected to MongoDB at: %s', mongoURL);
   });
