@@ -1,4 +1,4 @@
-var express = require('express');
+ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -99,7 +99,7 @@ var options = {
 var connect = function () {
     mongoose.connect(url, options).then(() => {
     console.log('connection successful');
-    seeder();
+  //  seeder();
   })
   .catch((err) => console.error(err));
 };
