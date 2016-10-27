@@ -86,9 +86,14 @@ if (process.env.OPENSHIFT_MONGODB_DB_URL) {
     process.env.OPENSHIFT_APP_NAME;
 }
 
+var options = {
+	user: process.env.MONGODB_USER,
+	pass: process.env.MONGODB_PASSWORD
+}
+
 // Connect to mongodb
 var connect = function () {
-    mongoose.connect(url).then(() => {
+    mongoose.connect(url, options).then(() => {
     console.log('connection successful');
     seeder();
   })
