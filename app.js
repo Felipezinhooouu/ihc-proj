@@ -87,8 +87,8 @@ if (process.env.OPENSHIFT_MONGODB_DB_URL) {
 }
 
 var options = {
-	user: process.env.MONGODB_USER,
-	pass: process.env.MONGODB_PASSWORD
+	user: "Applica",
+	pass: "ApplicaPass"
 }
 
 // Connect to mongodb
