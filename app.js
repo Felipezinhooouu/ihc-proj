@@ -92,8 +92,6 @@ var options = {
 	pass: process.env[mongoServiceName + '_PASSWORD']
 }
 
-console.log(options.pass);
-
 // Connect to mongodb
 var connect = function () {
     mongoose.connect(url, options).then(() => {
