@@ -1,0 +1,189 @@
+{
+  "idades": {
+    "_model": "Idade",
+    "recem_nasc": {
+      "idade": 0,
+      "tipo": "Recém nascido"
+    },
+    "1_mes": {
+      "idade": 1,
+      "tipo": "mes"
+    },
+    "2_meses": {
+      "idade": 2,
+      "tipo": "mes"
+    },
+    "3_meses": {
+      "idade": 3,
+      "tipo": "mes"
+    },
+    "4_meses": {
+      "idade": 4,
+      "tipo": "mes"
+    },
+    "5_meses": {
+      "idade": 5,
+      "tipo": "mes"
+    },
+    "6_meses": {
+      "idade": 6,
+      "tipo": "mes"
+    },
+    "9_meses": {
+      "idade": 9,
+      "tipo": "mes"
+    },
+    "12_meses": {
+      "idade": 12,
+      "tipo": "mes"
+    },
+    "15_meses": {
+      "idade": 15,
+      "tipo": "mes"
+    },
+    "4_anos": {
+      "idade": 4,
+      "tipo": "ano"
+    },
+    "5_anos": {
+      "idade": 5,
+      "tipo": "ano"
+    },
+    "6_anos": {
+      "idade": 6,
+      "tipo": "ano"
+    }
+  },
+  "doencas": {
+    "_model": "Doenca",
+    "tuberculose":{
+      "nome": "Tuberculose"
+    },
+    "difteria":{
+      "nome": "Difteria"
+    },
+    "tetano":{
+      "nome": "Tétano"
+    },
+    "hepatite_b":{
+      "nome": "Hepatite B"
+    },
+    "poliomilite": {
+      "nome": "Poliomelite (Paralísia infantil)"
+    },
+    "pneumonia": {
+      "nome": "Pneumonia"
+    },
+    "meningite": {
+      "nome": "Meningite"
+    },
+    "rotavirus": {
+      "nome": "Doenças diarréicas por Rotavírus"
+    },
+    "otite": {
+      "nome": "Otite"
+    },
+    "sinusite": {
+      "nome": "Sinusite"
+    },
+    "streptococcus_pneumoniae": {
+      "nome": "Meningite causada pelo Streptococcus pneumoniae"
+    },
+    "invasivas_neisseria": {
+      "nome": "Doença invasiva causada por Neisseria meningitidis do Sorogrupo C"
+    },
+    "coqueluche": {
+      "nome": "Coqueluche"
+    },
+    "haemophius_influenzae": {
+      "nome": "Infecções causadas por Haemophilus Influenzae"
+    },
+    "febre_amarela": {
+      "nome": "Febre amarela"
+    },
+    "sarampo": {
+      "nome": "Sarampo"
+    },
+    "rubeola": {
+      "nome": "Rubéola"
+    },
+    "caxumba": {
+      "nome": "Caxumba"
+    },
+    "influenza": {
+      "nome": "Influenza"
+    },
+    "gripe": {
+      "nome": "Gripe"
+    }
+  },
+  "vacinas": {
+    "_model": "Vacina",
+    "0": {
+      "nome": "BCG-ID",
+      "idades_dose": [
+        "->idades.recem_nasc"
+      ],
+      "doencas": [
+        "->doencas.tuberculose"
+      ]
+    },
+    "1": {
+      "nome": "Hepatite B",
+      "idades_dose": [
+        "->idades.recem_nasc",
+        "->idades.1_mes"
+      ],
+      "doencas": [
+        "->doencas.hepatite_b"
+      ]
+    },
+    "2": {
+      "nome": "Oral contra a Pólio",
+      "idades_mes": [
+        "->idades.2_meses"
+      ],
+      "doencas": [
+        "->doencas.Poliomelite"
+      ]
+    },
+    "3": {
+      "nome": "Tetravalente",
+      "idades_mes": [
+        "->idades.2_meses"
+      ],
+      "doencas": [
+        "->doencas.difteria", "->doencas.tetano", "->doencas.coqueluche",
+        "->doencas.meningite", "->doencas.haemophius_influenzae"
+      ]
+    },
+    "4": {
+      "nome": "Rotavírus humano",
+      "idades_mes": [
+        "->idades.2_meses"
+      ],
+      "doencas": [
+        "->doencas.rotavirus"
+      ]
+    },
+    "5": {
+      "nome": "Pneumococos",
+      "idades_mes": [
+        "->idades.2_meses"
+      ],
+      "doencas": [
+        "->doencas.otite", "->doencas.sinusite", "->doencas.pneumonia",
+        "->doencas.streptococcus_pneumoniae"
+      ]
+    },
+    "6": {
+      "nome": "Meningococo C",
+      "idades_mes": [
+        "->idades.3_meses"
+      ],
+      "doencas": [
+        "->doencas.meningitidis"
+      ]
+    }
+  }
+}
