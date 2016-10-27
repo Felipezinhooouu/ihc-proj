@@ -99,7 +99,7 @@ var options = {
 var connect = function () {
     mongoose.connect(url, options).then(() => {
     console.log('connection successful');
-    seeder();
+    //seeder();
   })
   .catch((err) => console.error(err));
 };
