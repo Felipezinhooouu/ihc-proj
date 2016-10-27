@@ -89,7 +89,7 @@ var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
 
 var options = {
 	user: process.env[mongoServiceName + '_USER'],
-	pass: process.env[mongoServiceName + '_PASSWORD']
+	pass: process.env[mongoServiceName + '_PASSWORD'],
 	auth: {
             authdb: 'Applica'
         }
@@ -99,7 +99,7 @@ var options = {
 var connect = function () {
     mongoose.connect(url, options).then(() => {
     console.log('connection successful');
-  //  seeder();
+    seeder();
   })
   .catch((err) => console.error(err));
 };
