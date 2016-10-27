@@ -89,7 +89,7 @@ var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
 
 var options = {
 	user: process.env[mongoServiceName + '_USER'],
-	pass: process.env[mongoServiceName + '_PASSWORD']
+	pass: process.env[mongoServiceName + '_ADMIN_PASSWORD']
 }
 
 // Connect to mongodb
