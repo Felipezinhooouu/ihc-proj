@@ -78,7 +78,7 @@ var mongoose = require('mongoose')
 
 mongoose.Promise = global.Promise;
 
-var url = '127.0.0.1:27017/' + process.env.OPENSHIFT_APP_NAME;
+var url = '172.30.12.65:27017/' + process.env.OPENSHIFT_APP_NAME;
 
 // if OPENSHIFT env variables are present, use the available connection info:
 if (process.env.OPENSHIFT_MONGODB_DB_URL) {
