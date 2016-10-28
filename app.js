@@ -78,32 +78,64 @@ var mongoose = require('mongoose')
 
 mongoose.Promise = global.Promise;
 
-// Connect to mongodb
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-  ip = process.env.IP || process.env.OPENSHFT_NODEJS_IP || '0.0.0.0',
-  mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
-  mongoURLLabel = "";
+////
 
-if (mongoURL == null && process.env.DATABASE_SERVICE_NAME){
-  var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase(),
-  mongoHost = process.env[mongoServiceName + '_SERVICE_HOST'],
-  mongoPort = process.env[mongoServiceName + '_SERVICE_PORT'],
-  mongoDatabase = process.env[mongoServiceName + '_DATABASE'],
-  mongoPassword = process.env[mongoServiceName + '_PASSWORD']
-  mongoUser = process.env[mongoServiceName + '_USER'];
 
-  if(mongoHost && mongoPort && mongoDatabase){
-    mongoURLLabel = mongoURL = 'mongodb://';
-    if(mongoUser && mongoPassword){
-      mongoURL += mongoUser + ':' + mongoPassword + '@';
-    }
+var url = 'mongodb://' + process.env.MONGODB_SERVICE_HOST;
 
-    mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
-    mongoURL += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
-  }
+if (process.env.OPENSHIFT_MONGO_DB_URL){
+  url = process.env.OPENSHIFT_MONGODB_DB_URL +
+  process.env.OPENSHIFT_APP_NAME;
 }
 
-var db = null, dbDetails = new Object();
+var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
+
+var options {
+  user: process.env[mongoServiceName + '_USER'],
+  pass: process.env[mongoServiceName + '_PASSWORD']
+}
+
+console.log("CONNECTING TO: " + url);
+console.log("WITH USER: " + options.user);
+console.log("WITH PASS: " + options.pass);
+
+var connect = function() {
+  mongoose.connect(url, options).then(() => {
+    console.log("CONNECTED SUCCESSFULLY");
+  }).catch((err) => console.error(err));
+}
+
+connect();
+
+/////
+
+
+// Connect to mongodb
+// var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+//   ip = process.env.IP || process.env.OPENSHFT_NODEJS_IP || '0.0.0.0',
+//   mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
+//   mongoURLLabel = "";
+//
+// if (mongoURL == null && process.env.DATABASE_SERVICE_NAME){
+//   var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase(),
+//   mongoHost = process.env[mongoServiceName + '_SERVICE_HOST'],
+//   mongoPort = process.env[mongoServiceName + '_SERVICE_PORT'],
+//   mongoDatabase = process.env[mongoServiceName + '_DATABASE'],
+//   mongoPassword = process.env[mongoServiceName + '_PASSWORD']
+//   mongoUser = process.env[mongoServiceName + '_USER'];
+//
+//   if(mongoHost && mongoPort && mongoDatabase){
+//     mongoURLLabel = mongoURL = 'mongodb://';
+//     if(mongoUser && mongoPassword){
+//       mongoURL += mongoUser + ':' + mongoPassword + '@';
+//     }
+//
+//     mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
+//     mongoURL += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
+//   }
+// }
+//
+// var db = null, dbDetails = new Object();
 
 var initDb = function(callback){
   if (mongoURL == null) return;
@@ -117,9 +149,6 @@ var initDb = function(callback){
   //     return;
   //   }
 
-  mongoose.connect(mongoURL).then(() => {
-    console.log('connected!')
-  });
 
     // db = conn;
     // dbDetails.databaseName = db.databaseName;
