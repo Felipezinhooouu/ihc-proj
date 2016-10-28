@@ -103,8 +103,7 @@ console.log("WITH PASS: " + options.pass);
 var connect = function() {
   mongoose.connect(url, options).then(() => {
     console.log("CONNECTED SUCCESSFULLY");
-
-    console.log("----- Applying seeds:\n");
+    //Applying seedes
     seeder();
     console.log("------------");
   }).catch((err) => console.error(err));

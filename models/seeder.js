@@ -9,7 +9,7 @@ var seed = function(){
   console.log('-------------\nApplying seeds...');
 
   Doenca.remove({}, function(){
-    console.log("deleted");
+    console.log("database Doenças deletado com sucesso!");
   })
 
   seeder.seed(data).then(function(dbData){
