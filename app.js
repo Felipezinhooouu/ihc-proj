@@ -90,7 +90,7 @@ if (process.env.OPENSHIFT_MONGO_DB_URL){
 
 var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
 
-var options {
+var options = {
   user: process.env[mongoServiceName + '_USER'],
   pass: process.env[mongoServiceName + '_PASSWORD']
 }
