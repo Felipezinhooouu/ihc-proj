@@ -111,10 +111,10 @@ connect();
 
 
 // Connect to mongodb
-// var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-//   ip = process.env.IP || process.env.OPENSHFT_NODEJS_IP || '0.0.0.0',
-//   mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
-//   mongoURLLabel = "";
+ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+   ip = process.env.IP || process.env.OPENSHFT_NODEJS_IP || '0.0.0.0',
+   mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
+   mongoURLLabel = "";
 //
 // if (mongoURL == null && process.env.DATABASE_SERVICE_NAME){
 //   var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase(),
@@ -137,8 +137,8 @@ connect();
 //
 // var db = null, dbDetails = new Object();
 
-var initDb = function(callback){
-  if (mongoURL == null) return;
+//var initDb = function(callback){
+  //if (mongoURL == null) return;
 
   // var mongodb = require('mongodb');
   // if (mongodb == null) return;
@@ -155,13 +155,13 @@ var initDb = function(callback){
     // dbDetails.url = mongoURLLabel;
     // dbDetails.type = 'MongoDB';
 
-    console.log('Connected to MongoDB at: %s', mongoURL);
+  //  console.log('Connected to MongoDB at: %s', mongoURL);
   //});
-}
+//}
 
-initDb(function(err){
-  console.log('erro ao conectar no mongoDB: ' + err);
-});
+// initDb(function(err){
+//   console.log('erro ao conectar no mongoDB: ' + err);
+// });
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
