@@ -4,8 +4,8 @@ var AplicacaoSchema = new mongoose.Schema({
   data: Date,
   local: String,
   lote: String,
-  vacina: String
-  efetivada: Boolean
+  vacina: String,
+  efetivada: Boolean,
   //vacina: {type: mongoose.Schema.Types.ObjectId, ref: 'Vacina'},
   cardeneta: {type: mongoose.Schema.Types.ObjectId, ref: 'Cardeneta'}
 });
