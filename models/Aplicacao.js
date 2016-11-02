@@ -6,6 +6,7 @@ var AplicacaoSchema = new mongoose.Schema({
   lote: String,
   vacina: String,
   efetivada: Boolean,
+  dose: String,
   //vacina: {type: mongoose.Schema.Types.ObjectId, ref: 'Vacina'},
   cardeneta: {type: mongoose.Schema.Types.ObjectId, ref: 'Cardeneta'}
 });
