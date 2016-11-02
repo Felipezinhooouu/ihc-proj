@@ -65,10 +65,15 @@ router.get('/:id/aplicacoes', function(req, res, next){
 });
 
 router.post('/:id/aplicacoes', function(req, res, next){
-  Cardeneta.findById(req.params.id, function(err, card){
-    Aplicacao.create(req.body, function(err, new_aplic){
+  Cardeneta.findById(req.params.id, function(error_card, card){
+    if(error_card) next(error_card);
+    Aplicacao.create(req.body, function(error_create_aplic, new_aplic){
+      if(error_create_aplic) next(error_create_aplic)
       card.aplicacoes.push(new_aplic);
-      card.save(function(err, post){
+      card.save(function(error_create_aplic_rel, post){
+
+        if(error_create_aplic_rel) next(error_create_aplic_rel)
+        
         res.json(post);
       });
     });
