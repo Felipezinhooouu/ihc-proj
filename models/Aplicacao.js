@@ -5,7 +5,8 @@ var AplicacaoSchema = new mongoose.Schema({
   local: String,
   lote: String,
   vacina: String,
-  efetivada: Boolean,
+  efetivada: {type: Boolean, default: false},
+  alarm: {type: Boolean, default: false},
   dose: String,
   //vacina: {type: mongoose.Schema.Types.ObjectId, ref: 'Vacina'},
   cardeneta: {type: mongoose.Schema.Types.ObjectId, ref: 'Cardeneta'}
