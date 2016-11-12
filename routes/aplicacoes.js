@@ -27,7 +27,16 @@ router.put('/:id', function(req, res, next){
       res.json(post);
     });
   })
-})
+});
+
+
+router.delete('/:id', function(req, res, next){
+  Aplicacao.findById(req.params.id, function(err, aplic){
+    aplic.remove(function(err_delete, removed){
+      res.json({message: 'deletado com sucesso!'});
+    });
+  });
+});
 
 router.post('/:id/vacina', function(req, res, next){
   Aplicacao.findById(req.params.id, function(err, aplic){

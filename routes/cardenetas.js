@@ -31,7 +31,18 @@ router.post('/', function(req, res, next){
 router.put('/:id', function(req, res, next){
   Cardeneta.findByIdAndUpdate(req.params.id, req.body, function(err, post){
     if(err) return next(err);
-    res.json(post);
+    Cardeneta.findById(req.params.id, function(err, post){
+      if(err) return next(err);
+      res.json(post);
+    });
+  });
+});
+
+router.delete('/:id', function(req, res, next){
+  Cardeneta.findById(req.params.id, function(err, card){
+    card.remove(function(err_delete, removed){
+      res.json({message: 'deletado com sucesso!'});
+    });
   });
 });
 
