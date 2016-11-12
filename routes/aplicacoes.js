@@ -19,6 +19,16 @@ router.get('/:id', function(req, res, next){
   });
 });
 
+router.put('/:id', function(req, res, next){
+  Aplicacao.findByIdAndUpdate(req.params.id, req.body, function(err, post){
+    if(err) return next(err);
+    Aplicacao.findById(req.params.id, function(err, post){
+      if (err) next(err);
+      res.json(post);
+    });
+  })
+})
+
 router.post('/:id/vacina', function(req, res, next){
   Aplicacao.findById(req.params.id, function(err, aplic){
     if(err) next(err);
