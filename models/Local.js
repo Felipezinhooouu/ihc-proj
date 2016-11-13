@@ -5,11 +5,7 @@ var LocalSchema = new mongoose.Schema({
   nome: String,
   cnpj: String,
   razao_social: String,
-  endereco: String,
-  estado: String,
-  cidade: String,
-  latitude: Number,
-  longitude: Number,
+  location: Object,
   vacinas_disponiveis: [{type: mongoose.Schema.Types.ObjectId, ref: 'Vacina', childPath: 'vacinas_disponiveis'}]
 });
 
