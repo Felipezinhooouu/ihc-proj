@@ -33,6 +33,16 @@ router.get('/:id/cardenetas', function(req, res, next){
   });
 });
 
+router.get('/:id/pendings', function(req, res, next){
+  User.findById(req.params.id, function(err, user){
+    Share.find({_id: {$in: user['pendings']}}, functon(err, post){
+      if(err) next(err);
+
+      res.json(post);
+    });
+  });
+});
+
 router.post('/:id/cardenetas', function(req, res, next){
   User.findById(req.params.id, function(err, user){
     Cardeneta.create(req.body, function(err, new_card){
