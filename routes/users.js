@@ -34,11 +34,10 @@ router.get('/:id/cardenetas', function(req, res, next){
 });
 
 router.get('/:id/pendings', function(req, res, next){
-  User.findById(req.params.id, function(err, user){
-    Share.find({_id: {$in: user['pendings']}}, function(err, post){
+  User.findById(req.params.id, function(err, user_origin){
+    Share.find({_id: {$in: user_origin['pendings']}}, function(err, pendings){
       if(err) next(err);
-
-      res.json(post);
+      res.json(pendings);
     });
   });
 });
@@ -53,15 +52,16 @@ router.post('/:id/cardenetas', function(req, res, next){
     });
   });
 });
-
-router.get('/:id/pendings', function(req, res, next){
-  User.findById(req.params.id, function(err, user){
-    if(err) next(err);
-    Share.find({_id: {$in: user.pendings}}).exec(function(err, post){
-      res.json(post);
-    })
-  });
-});
+//
+// router.get('/:id/pendings', function(req, res, next){
+//   User.findById(req.params.id, function(err, user){
+//     if(err) next(err);
+//     Share.find({_id: {$in: user.pendings}}).exec(function(err, pending){
+//       res.json(post);
+//       User.findById()
+//     })
+//   });
+// });
 
 router.post('/', function(req, res, next){
 
