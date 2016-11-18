@@ -35,7 +35,7 @@ router.get('/:id/cardenetas', function(req, res, next){
 
 router.get('/:id/pendings', function(req, res, next){
   User.findById(req.params.id, function(err, user){
-    Share.find({_id: {$in: user['pendings']}}, functon(err, post){
+    Share.find({_id: {$in: user['pendings']}}, function(err, post){
       if(err) next(err);
 
       res.json(post);
