@@ -6,6 +6,7 @@
       "nome": "CEMA Tucuruvi",
       "cnpj": "123",
       "razao_social": "CEMA Tucuruvi",
+      "vacinas": ["Gripe", "Hepatite B"],
       "location": {
         "type": "Point",
         "address": "Av. Dr. Antônio Maria Laet",
@@ -20,6 +21,7 @@
         "nome": "AE Tucuruvi - Prof. Armando de Aguiar Pupo",
         "cnpj": "123",
         "razao_social": "AE TUcuruvi",
+        "vacinas": ["Hepatite B"],
         "location": {
           "type": "Point",
           "address": "Av. Nova Cantareira, 1467",
@@ -34,6 +36,7 @@
         "nome": "Hospital do Servidor Público Municipal",
         "cnpj": "123",
         "razao_social": "Hospital do Servidor Público Municipal",
+        "vacinas": ["Gripe"],
         "location": {
           "type": "Point",
           "address": "R. Pedro Madureira, 601",
@@ -48,6 +51,7 @@
         "nome": "Hospital qualquer",
         "cnpj": "123",
         "razao_social": "Hospital qualquer",
+        "vacinas": [],
         "location": {
           "type": "Point",
           "address": "R. Pedro Madureira, 601",

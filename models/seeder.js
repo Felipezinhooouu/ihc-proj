@@ -22,7 +22,7 @@ var seed = function(){
 
   Local.remove({}, function(){
     console.log("database Local deletado com sucesso!");
-  })
+  });
 
   Aplicacao.remove({}, function(){
     console.log("database Aplicacoes deletado com sucesso!");
