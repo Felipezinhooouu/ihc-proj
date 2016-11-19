@@ -3,6 +3,7 @@
     "_model": "User",
     "felipe": {
       "nome": "Felipe",
+      "sexo": "Masculino",
       "email": "felipe@gmail.com",
       "salt": "758685102070",
       "hashed_password": "8e4ab097166adb101ce0dc4471aa7b4c118c4635",
@@ -20,6 +21,7 @@
     },
     "teste": {
       "nome": "Felipe",
+      "sexo": "Masculino",
       "email": "teste@gmail.com",
       "salt": "758685102070",
       "hashed_password": "8e4ab097166adb101ce0dc4471aa7b4c118c4635",

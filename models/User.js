@@ -11,6 +11,7 @@ const oAuthTypes = [
 var UserSchema = new mongoose.Schema({
   nome: String,
   sobrenome: String,
+  sexo: String,
   dt_nasc: Date,
   email: String,
   location: Object,

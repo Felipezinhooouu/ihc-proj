@@ -6,6 +6,9 @@
       "nome": "CEMA Tucuruvi",
       "cnpj": "123",
       "razao_social": "CEMA Tucuruvi",
+      "telefone": "(11) 1234-1234",
+      "email": "cema@gmail.com",
+      "website": "www.alo.com.br",
       "vacinas": ["Gripe", "Hepatite B"],
       "location": {
         "type": "Point",
@@ -22,6 +25,9 @@
         "cnpj": "123",
         "razao_social": "AE TUcuruvi",
         "vacinas": ["Hepatite B"],
+        "telefone": "(11) 1234-1234",
+        "email": "cema@gmail.com",
+        "website": "www.alo.com.br",
         "location": {
           "type": "Point",
           "address": "Av. Nova Cantareira, 1467",
@@ -36,6 +42,9 @@
         "nome": "Hospital do Servidor Público Municipal",
         "cnpj": "123",
         "razao_social": "Hospital do Servidor Público Municipal",
+        "telefone": "(11) 1234-1234",
+        "email": "cema@gmail.com",
+        "website": "www.alo.com.br",
         "vacinas": ["Gripe"],
         "location": {
           "type": "Point",
