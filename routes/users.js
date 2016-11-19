@@ -4,6 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var User = require('../models/User.js');
 var Cardeneta = require('../models/Cardeneta.js');
+var Aplicacao = require('../models/Aplicacao.js');
 var Share = require('../models/Share.js');
 
 var failed_to_login = function(res){
@@ -42,14 +43,47 @@ router.get('/:id/pendings', function(req, res, next){
   });
 });
 
+function monthDiff(d1, d2){
+  var months;
+  months = (d2.getFullYear() - d1.getFullYear()) * 12;
+  months -= d1.getMonth() + 1;
+  months += d2.getMonth();
+  return months <= 0 ? 0 : months;
+}
+
+function get_aplicacoes_default(idade, callback){
+  var criteria = {}
+  Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
+    callback(err, post);
+  });
+}
+
+function get_aplicacoes_default(idade, callback){
+  var criteria = {}
+  Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
+    callback(err, post);
+  });
+}
+
 router.post('/:id/cardenetas', function(req, res, next){
   User.findById(req.params.id, function(err, user){
-    Cardeneta.create(req.body, function(err, new_card){
-      user.cardenetas.push(new_card);
-      user.save(function(err, post){
-        res.json(post);
+    Cardeneta.create(req.body, function(err, cardeneta){
+          var date = new Date();
+          var months = monthDiff(new Date(cardeneta.dt_nasc), date);
+          console.log(months);
+          get_aplicacoes_default(months, function(err, aplicacoes_default){
+            console.log(aplicacoes_default);
+            cardeneta.aplicacoes = aplicacoes_default;
+            cardeneta.save(function(err, saved_card){
+              if(err) next(err);
+
+              user.cardenetas.push(saved_card);
+              user.save(function(err, post){
+                res.json(post);
+              });
+            });
+          });
       });
-    });
   });
 });
 //
