@@ -7,22 +7,6 @@ var Share = require('../models/Share.js');
 var User = require('../models/User.js');
 
 
-router.get('/', function(req, res, next){
-  Cardeneta.find(function(err, all){
-    if(err) return next(err);
-    res.json(all);
-  });
-});
-
-router.get('/:id', function(req, res, next){
-  Cardeneta.findById(req.params.id, function(err, post){
-    if (err) return next(err);
-    res.json(post);
-  });
-});
-
-router.post('/', function(req, res, next){
-
   function monthDiff(d1, d2){
     var months;
     months = (d2.getFullYear() - d1.getFullYear()) * 12;
@@ -45,11 +29,27 @@ router.post('/', function(req, res, next){
     });
   }
 
-  Cardeneta.create(req.body, function(err, cardeneta){
+router.get('/', function(req, res, next){
+  Cardeneta.find(function(err, all){
+    if(err) return next(err);
+    res.json(all);
+  });
+});
+
+router.get('/:id', function(req, res, next){
+  Cardeneta.findById(req.params.id, function(err, post){
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+router.post('/', function(req, res, next){
+Cardeneta.create(req.body, function(err, cardeneta){
       var date = new Date();
       var months = monthDiff(new Date(cardeneta.dt_nasc), date);
 
       get_aplicacoes_default(months, function(err, aplicacoes_default){
+        console.log(aplicacoes_default);
         cardeneta.aplicacoes = aplicacoes_default;
         cardeneta.save(function(err, saved_card){
           if(err) next(err);
