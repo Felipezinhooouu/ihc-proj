@@ -37,7 +37,7 @@ app.use('/authenticate', auth);
 app.use('/api', routes);
 app.use('/api/users', users);
 app.use('/api/cardenetas', cardenetas);
-//app.use('/api/aplicacoes', aplicacoes);
+app.use('/api/aplicacoes', aplicacoes);
 app.use('/api/vacinas', vacinas);
 app.use('/api/share', share);
 app.use('/api/doencas', doencas);
