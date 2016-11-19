@@ -4,6 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Local = require('../models/Local');
 var Vacina = require('../models/Vacina');
+var User = require('../models/User');
 
 router.post('/', function(req, res, next){
   Local.create(req.body, function(err, post){
@@ -13,15 +14,15 @@ router.post('/', function(req, res, next){
 });
 
 router.get('/near/:id', function(req, res, next){
-  Local.findById(req.params.id, function(err, local){
+  User.findById(req.params.id, function(err, user){
     if(err) next(err);
-    var coordinates = local.location.coordinates;
+    var coordinates = user.location.coordinates;
       Local.find({
         location: {$near: {$geometry: {
                             type: "Point",
                             coordinates: [coordinates[0], coordinates[1]]
                           },
-                          $maxDistance: 2000
+                          $maxDistance: 5000
                         }
                       }
       }).exec(function(err, locais){

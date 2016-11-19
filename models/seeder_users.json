@@ -1,0 +1,39 @@
+{
+  "users" : {
+    "_model": "User",
+    "felipe": {
+      "nome": "Felipe",
+      "email": "felipe@gmail.com",
+      "salt": "758685102070",
+      "hashed_password": "8e4ab097166adb101ce0dc4471aa7b4c118c4635",
+      "sobrenome": "Mariano",
+      "dt_nasc": "1995-11-06",
+      "location": {
+        "type": "Point",
+        "address": "Av. Gustavo Adolfo",
+        "cep": "02206-010",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "bairro": "Tucuruvi",
+        "coordinates": [-23.481142, -46.596125]
+        }
+    },
+    "teste": {
+      "nome": "Felipe",
+      "email": "teste@gmail.com",
+      "salt": "758685102070",
+      "hashed_password": "8e4ab097166adb101ce0dc4471aa7b4c118c4635",
+      "sobrenome": "Mariano",
+      "dt_nasc": "1995-11-06",
+      "location": {
+        "type": "Point",
+        "address": "Av. Gustavo Adolfo",
+        "cep": "02206-010",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "bairro": "Tucuruvi",
+        "coordinates": [-23.481142, -46.596125]
+        }
+    }
+  }
+}
