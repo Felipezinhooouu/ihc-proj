@@ -1,11 +1,24 @@
 var express = require('express');
 var router = express.Router();
+function get_aplicacoes_default(idade, callback){
+  var criteria = {}
+  Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
+    callback(err, post);
+  });
+}
 
 var mongoose = require('mongoose');
 var Cardeneta = require('../models/Cardeneta.js');
 var Aplicacao = require('../models/Aplicacao.js');
 var Share = require('../models/Share.js');
 var User = require('../models/User.js');
+
+function get_aplicacoes_default(idade, callback){
+  var criteria = {}
+  Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
+    callback(err, post);
+  });
+}
 
 router.get('/', function(req, res, next){
   Cardeneta.find(function(err, all){
@@ -21,10 +34,26 @@ router.get('/:id', function(req, res, next){
   });
 });
 
+function monthDiff(d1, d2){
+  var months;
+  months = (d2.getFullYear() - d1.getFullYear()) * 12;
+  months -= d1.getMonth() + 1;
+  months += d2.getMonth();
+  return months <= 0 ? 0 : months;
+}
+
 router.post('/', function(req, res, next){
-  Cardeneta.create(req.body, function(err, post){
-      if(err) return next(err);
-      res.json(post);
+  Cardeneta.create(req.body, function(err, cardeneta){
+      var date = new Date();
+      var months = monthDiff(new Date(cardeneta.dt_nasc), date);
+
+      get_aplicacoes_default(months, function(err, aplicacoes_default){
+        cardeneta.aplicacoes = aplicacoes_default;
+        cardeneta.save(function(err, saved_card){
+          if(err) next(err);
+          res.json(saved_card);
+        });
+      });
   });
 });
 

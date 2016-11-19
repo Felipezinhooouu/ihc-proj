@@ -5,8 +5,18 @@ var mongoose = require('mongoose');
 var Aplicacao = require('../models/Aplicacao');
 var Vacina = require('../models/Vacina');
 
+function get_aplicacoes_default(idade, callback){
+  var criteria = {}
+  Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
+    callback(err, post);
+  });
+}
+
 router.get('/', function(req, res, next){
   Aplicacao.find(function(err, all){
+    get_aplicacoes_default(2, function(err, post){
+      console.log(post.vacina);
+    });
     if(err) return next(err);
     res.json(all);
   })

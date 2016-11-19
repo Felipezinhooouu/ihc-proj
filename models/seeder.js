@@ -1,8 +1,10 @@
 var Idade = require('./Idade.js');
 var Doenca = require('./Doenca.js');
+var Aplicacao = require('./Aplicacao.js');
 var Vacina = require('./Vacina.js');
 var seeder = require('mongoose-seeder');
 var data = require('./seed.json');
+var aplicacoes_data = require('./seeder_aplicacoes.json');
 var mongoose = require('mongoose');
 
 var seed = function(){
@@ -10,7 +12,17 @@ var seed = function(){
 
   Doenca.remove({}, function(){
     console.log("database Doenças deletado com sucesso!");
-  })
+  });
+
+  Aplicacao.remove({}, function(){
+    console.log("database Aplicacoes deletado com sucesso!");
+  });
+
+  seeder.seed(aplicacoes_data).then(function(dbData){
+    console.log("aplicacoes seed com sucesso!");
+  }).catch(function(err){
+    console.log("erro ao inserir aplicacoes: " + err);
+  });
 
   seeder.seed(data).then(function(dbData){
     console.log("seeded com sucesso!\n------------");

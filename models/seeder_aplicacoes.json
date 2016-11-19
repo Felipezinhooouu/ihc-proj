@@ -1,0 +1,18 @@
+{
+  "vacinas": {
+    "_model": "Vacina",
+    "0": {
+      "nome": "BCG-ID"
+    }
+  },
+  "aplicacoes": {
+      "_model": "Aplicacao",
+      "0": {
+        "data": "2016-11-23",
+        "local": "qualquer",
+        "dose": 0,
+        "idade_minima_meses": 2,
+        "vacina": "->vacinas.0"
+      }
+    }
+}
