@@ -16,4 +16,15 @@ router.put('/:id/accept', function(req, res, next){
   });
 });
 
+router.put('/:id/reject', function(req, res, next){
+  Share.findById(req.params.id, function(err, share){
+    User.findById(share.user_dest, function(err, user){
+      user.pendings.pull(share);
+      user.save(function(err, post){
+        res.json(post);
+      })
+    });
+  });
+});
+
 module.exports = router;

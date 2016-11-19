@@ -14,7 +14,49 @@
         "estado": "SP",
         "bairro": "Tucuruvi",
         "coordinates": [-23.4871635, -46.6150412]
+        }
+      },
+      "1": {
+        "nome": "AE Tucuruvi - Prof. Armando de Aguiar Pupo",
+        "cnpj": "123",
+        "razao_social": "AE TUcuruvi",
+        "location": {
+          "type": "Point",
+          "address": "Av. Nova Cantareira, 1467",
+          "cep": "02331-002",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "Tucuruvi",
+          "coordinates": [-23.4871635, -46.6150412]
+        }
+      },
+      "2": {
+        "nome": "Hospital do Servidor Público Municipal",
+        "cnpj": "123",
+        "razao_social": "Hospital do Servidor Público Municipal",
+        "location": {
+          "type": "Point",
+          "address": "R. Pedro Madureira, 601",
+          "cep": "02044-140",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "Jardim São Paulo",
+          "coordinates": [-23.4880955, -46.615173]
+        }
+      },
+      "3": {
+        "nome": "Hospital qualquer",
+        "cnpj": "123",
+        "razao_social": "Hospital qualquer",
+        "location": {
+          "type": "Point",
+          "address": "R. Pedro Madureira, 601",
+          "cep": "02044-140",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "Jardim São Paulo",
+          "coordinates": [-23.536948, -46.640221]
+        }
       }
     }
-  }
 }
