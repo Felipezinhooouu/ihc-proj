@@ -5,6 +5,7 @@ var AplicacaoSchema = new mongoose.Schema({
   local: String,
   lote: String,
   vacina: Object,
+  meses_prox_dose: {type: Number, default: 0},
   idade_minima_meses: {type: Number, default: 0},
   efetivada: {type: Boolean, default: false},
   alarm: {type: Boolean, default: false},

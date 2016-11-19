@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 function get_aplicacoes_default(idade, callback){
   var criteria = {}
   Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
