@@ -1,96 +1,20 @@
-/**/Dont forget to add: db.applica.createIndex({"location": "2dsphere"})
-[{
-    "nome": "Local ",
-    "cnpj": "String",
-    "razao_social": "String",
-    "location" : {
-        "type" : "Point",
-        "address" : "SS Environs, Chellikere, 1st block, Chelekare, Kalyan Nagar, Bengaluru, Karnataka 560043, India",
-        "coordinates" : [
-            77.63997110000003,
-            13.0280047
-        ]
-    }
-},
-{
-    "nome": "Local ",
-    "cnpj": "String",
-    "razao_social": "String",
-    "location" : {
-        "type" : "Point",
-        "address" : "Artistic Art Forum Pvt.ltd, HAL 2nd Stage, Appareddipalya, Indiranagar, Bengaluru, Karnataka 560038, India",
-        "coordinates" : [
-            77.64115449999997,
-            12.9718915
-        ]
-    }
 
-},
 {
-    "_id" : "03",
-    "nome": "Local ",
-    "cnpj": "String",
-    "razao_social": "String",
-    "location" : {
-        "type" : "Point",
-        "address" : "16, D Bhaskaran Rd, Murphy Town, Ulsoor, Bengaluru, Karnataka 560008, India",
-        "coordinates" : [
-            77.62855850000005,
-            12.9817147
-        ]
+  "locations": {
+    "_model": "Local",
+    "0": {
+      "nome": "CEMA Tucuruvi",
+      "cnpj": "123",
+      "razao_social": "CEMA Tucuruvi",
+      "location": {
+        "type": "Point",
+        "address": "Av. Dr. Antônio Maria Laet",
+        "cep": "02240-000",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "bairro": "Tucuruvi",
+        "coordinates": [-23.4871635, -46.6150412]
+      }
     }
-},
-{
-    "nome": "Local ",
-    "cnpj": "String",
-    "razao_social": "String",
-    "location" : {
-        "type" : "Point",
-        "address" : "77-406, MG Road, Shanthala Nagar, Shivaji Nagar, Bengaluru, Karnataka 560001, India",
-        "coordinates" : [
-            77.60547099999997,
-            12.975614
-        ]
-    }
-},
-{
-    "nome": "Local ",
-    "cnpj": "String",
-    "razao_social": "String",
-    "location" : {
-        "type" : "Point",
-        "address" : "Swamy Vivekananda Rd, Gowthamapuram, Jogupalya, Bengaluru, Karnataka 560007, India",
-        "coordinates" : [
-            77.62047400000006,
-            12.972814
-        ]
-    }
-},
-{
-    "nome": "Local ",
-    "cnpj": "String",
-    "razao_social": "String",
-    "location" : {
-        "type" : "Point",
-        "address" : "869, 12th Main Rd, Koramangala 3 Block, Koramangala, Bengaluru, Karnataka 560034, India",
-        "coordinates" : [
-            77.62710779999998,
-            12.9279232
-        ]
-    }
-
-},
-{
-  "nome": "Local ",
-  "cnpj": "String",
-  "razao_social": "String",
-    "location" : {
-        "type" : "Point",
-        "address" : "7th Cross Rd, Domlur I Stage, Stage 2, Domlur, Bengaluru, Karnataka 560071, India",
-        "coordinates" : [
-            77.63873160000003,
-            12.9609857
-        ]
-    }
+  }
 }
-]

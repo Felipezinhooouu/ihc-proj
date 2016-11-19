@@ -8,11 +8,11 @@
   "aplicacoes": {
       "_model": "Aplicacao",
       "0": {
-        "data": "2016-11-23",
+        "data":  null,
         "local": "qualquer",
         "dose": 0,
         "idade_minima_meses": 2,
-        "vacina": "->vacinas.0"
+        "vacina": "BCG-ID"
       }
     }
 }

@@ -2,10 +2,14 @@ var Idade = require('./Idade.js');
 var Doenca = require('./Doenca.js');
 var Aplicacao = require('./Aplicacao.js');
 var Vacina = require('./Vacina.js');
+var Local = require('./Local.js');
 var seeder = require('mongoose-seeder');
 var data = require('./seed.json');
 var aplicacoes_data = require('./seeder_aplicacoes.json');
+var locations_data = require('./seeder_location.json');
 var mongoose = require('mongoose');
+
+//Dont forget to add: db.applica.createIndex({"location": "2dsphere"})
 
 var seed = function(){
   console.log('-------------\nApplying seeds...');
@@ -13,6 +17,10 @@ var seed = function(){
   Doenca.remove({}, function(){
     console.log("database Doenças deletado com sucesso!");
   });
+
+  Local.remove({}, function(){
+    console.log("database Local deletado com sucesso!");
+  })
 
   Aplicacao.remove({}, function(){
     console.log("database Aplicacoes deletado com sucesso!");
@@ -23,6 +31,12 @@ var seed = function(){
   }).catch(function(err){
     console.log("erro ao inserir aplicacoes: " + err);
   });
+
+  seeder.seed(locations_data).then(function(dbData){
+    console.log("locais seeded com sucesso!");
+  }).catch(function(err){
+    console.log("erro ao inserir locais: " + err);
+  })
 
   seeder.seed(data).then(function(dbData){
     console.log("seeded com sucesso!\n------------");

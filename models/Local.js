@@ -13,4 +13,6 @@ LocalSchema.plugin(relationship, {
     relationshipPathName: 'vacinas_disponiveis'
 });
 
+LocalSchema.index({"location": "2dsphere"});
+
 module.exports = mongoose.model('Local', LocalSchema);

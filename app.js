@@ -124,6 +124,7 @@ mongoose.Promise = global.Promise;
 //Configurations for local use:
 mongoose.connect('mongodb://localhost/applica')
   .then(() => {
+      
       console.log('connected succesfully');
       seeder();
   }).catch((err) => {console.error(err)});
