@@ -13,6 +13,7 @@ var UserSchema = new mongoose.Schema({
   sobrenome: String,
   dt_nasc: Date,
   email: String,
+  location: Object,
   hashed_password: String,
   salt: {type: String, default: ''},
   joined_at: {type: Date},
