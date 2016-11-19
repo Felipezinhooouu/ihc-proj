@@ -18,8 +18,14 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/:id/full', function(req, res, next){
+  User.findById(req.params.id, function(err, user){
+    res.json(post);
+  });
+});
+
 router.get('/:id', function (req, res, next){
-  const select = "nome authToken email cardenetas pendings";
+  const select = "nome sobrenome authToken email cardenetas pendings ";
   var criteria = {_id: req.params.id};
   User.load({criteria, select}, function(err, post){
     res.json(post);
