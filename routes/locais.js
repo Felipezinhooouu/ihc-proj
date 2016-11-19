@@ -41,6 +41,14 @@ router.get('/', function(req, res, next){
   });
 });
 
+router.get('/:id', function(req, res, next){
+  Local.findById(req.params.id, function(err, post){
+    if(err) next(err);
+
+    res.json(post);
+  });
+});
+
 router.get('/:doenca', function(req, res, next){
   Vacina.find({"nome": {"$regex": req.params.doenca, "$options": "i"}}
       , function(err, post){
