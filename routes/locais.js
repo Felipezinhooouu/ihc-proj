@@ -13,6 +13,26 @@ router.post('/', function(req, res, next){
   });
 });
 
+router.get('/nearlocation/', function(req, res, next){
+  var coordinates = [];
+  coordinates[0] = parseFloat(req.query.latitude);
+  coordinates[1] = parseFloat(req.query.longitude);
+  console.log(coordinates);
+  Local.find({
+    location: {$near: {$geometry: {
+                        type: "Point",
+                        coordinates: coordinates
+                      },
+                      $maxDistance: 5000
+                    }
+                  }
+  }).exec(function(err, locais){
+    if(err) next(err);
+
+    res.json(locais);
+  });
+})
+
 router.get('/near/:id', function(req, res, next){
   User.findById(req.params.id, function(err, user){
     if(err) next(err);
