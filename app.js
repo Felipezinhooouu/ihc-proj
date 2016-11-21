@@ -106,7 +106,7 @@ mongoose.Promise = global.Promise;
    mongoose.connect(url, options).then(() => {
      console.log("CONNECTED SUCCESSFULLY");
      //Applying seedes
-     //seeder();
+     seeder();
      console.log("------------");
    }).catch((err) => console.error(err));
  }
