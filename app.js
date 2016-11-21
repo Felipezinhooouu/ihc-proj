@@ -1,5 +1,5 @@
 //Needed: mongo --port 27017 -u admin -p adminpass --authenticationDatabase admin
-//Needed: db.grantRolesToUser("applica", [{role: "userAdmin", db: "applica"}])
+//Needed: db.grantRolesToUser("applica", [{role: "dbAdmin", db: "applica"}])
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
