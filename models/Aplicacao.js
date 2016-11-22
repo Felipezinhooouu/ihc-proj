@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var AplicacaoSchema = new mongoose.Schema({
   data: Date,
   local: String,
-  lote: String,
+  lote: {type: String, default: null},
   vacina: Object,
   meses_prox_dose: {type: Number, default: 0},
   idade_minima_meses: {type: Number, default: 0},
