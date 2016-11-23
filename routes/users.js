@@ -19,10 +19,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.put('/:id', function(req, res, next){
-  User.findByIdAndUpdate(req.params.id, function(err, user){
+  User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
     if(err) next(err);
-    res.json(user);
-  })
+    User.findById(req.params.id, function(err, updated_user){
+      if(err) next(err);
+      res.json(updated_user);
+    });
+  });
 });
 
 router.get('/:id/full', function(req, res, next){
