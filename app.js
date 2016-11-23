@@ -83,51 +83,51 @@ mongoose.Promise = global.Promise;
 ////
 //
 //Configurations for openshift:
- var url = 'mongodb://' + process.env.MONGODB_SERVICE_HOST;
-
- //Openshift options!
- if (process.env.OPENSHIFT_MONGODB_DB_URL){
-   url = process.env.OPENSHIFT_MONGODB_DB_URL + '/' +
-   process.env.OPENSHIFT_APP_NAME;
- }
-
- var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
-
- var options = {
-   user: process.env[mongoServiceName + '_USER'],
-   pass: process.env[mongoServiceName + '_PASSWORD']
- }
- //Check control access
- console.log("CONNECTING TO: " + url);
- console.log("WITH USER: " + options.user);
- console.log("WITH PASS: " + options.pass);
-
- var connect = function() {
-   mongoose.connect(url, options).then(() => {
-     console.log("CONNECTED SUCCESSFULLY");
-     //Applying seedes
-     seeder();
-     console.log("------------");
-   }).catch((err) => console.error(err));
- }
-
- connect();
-
-  var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-    ip = process.env.IP || process.env.OPENSHFT_NODEJS_IP || '0.0.0.0',
-    mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
-    mongoURLLabel = "";
-
- app.listen(port, ip);
- console.log('Server running on http://%s:%s', ip, port);
+ // var url = 'mongodb://' + process.env.MONGODB_SERVICE_HOST;
+ //
+ // //Openshift options!
+ // if (process.env.OPENSHIFT_MONGODB_DB_URL){
+ //   url = process.env.OPENSHIFT_MONGODB_DB_URL + '/' +
+ //   process.env.OPENSHIFT_APP_NAME;
+ // }
+ //
+ // var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
+ //
+ // var options = {
+ //   user: process.env[mongoServiceName + '_USER'],
+ //   pass: process.env[mongoServiceName + '_PASSWORD']
+ // }
+ // //Check control access
+ // console.log("CONNECTING TO: " + url);
+ // console.log("WITH USER: " + options.user);
+ // console.log("WITH PASS: " + options.pass);
+ //
+ // var connect = function() {
+ //   mongoose.connect(url, options).then(() => {
+ //     console.log("CONNECTED SUCCESSFULLY");
+ //     //Applying seedes
+ //     seeder();
+ //     console.log("------------");
+ //   }).catch((err) => console.error(err));
+ // }
+ //
+ // connect();
+ //
+ //  var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+ //    ip = process.env.IP || process.env.OPENSHFT_NODEJS_IP || '0.0.0.0',
+ //    mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
+ //    mongoURLLabel = "";
+ //
+ // app.listen(port, ip);
+ // console.log('Server running on http://%s:%s', ip, port);
 
 //Configurations for local use:
-// mongoose.connect('mongodb://localhost/applica')
-//  .then(() => {
-//
-//      console.log('connected succesfully');
-//      console.log()
-//      seeder();
-//  }).catch((err) => {console.error(err)});
+mongoose.connect('mongodb://localhost/applica')
+ .then(() => {
+
+     console.log('connected succesfully');
+     console.log()
+     seeder();
+ }).catch((err) => {console.error(err)});
 
 module.exports = app;
