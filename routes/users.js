@@ -35,7 +35,7 @@ router.get('/:id/full', function(req, res, next){
 });
 
 router.get('/:id', function (req, res, next){
-  const select = "nome sobrenome authToken email cardenetas pendings ";
+  const select = "nome sobrenome authToken email sexo dt_nasc cardenetas pendings ";
   var criteria = {_id: req.params.id};
   User.load({criteria, select}, function(err, post){
     res.json(post);
