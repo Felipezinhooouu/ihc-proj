@@ -1,4 +1,3 @@
-
 {
   "locations": {
     "_model": "Local",
@@ -9,7 +8,7 @@
       "telefone": "(11) 1234-1234",
       "email": "cema@gmail.com",
       "website": "www.alo.com.br",
-      "vacinas": ["Gripe", "Hepatite B"],
+      "vacinas": ["Febre amarela", "BCG-ID", "Gripe", "Hepatite B", "Pneumococos", "Meningococo C", "Triplice viral", "Triplice bacteriana"],
       "location": {
         "type": "Point",
         "address": "Av. Dr. Antônio Maria Laet",
@@ -23,8 +22,8 @@
       "1": {
         "nome": "AE Tucuruvi - Prof. Armando de Aguiar Pupo",
         "cnpj": "123",
-        "razao_social": "AE TUcuruvi",
-        "vacinas": ["Hepatite B"],
+        "razao_social": "AE Tucuruvi",
+        "vacinas": ["Hepatite B", "Dupla Adulto", "Gripe", "Febre amarela"],
         "telefone": "(11) 1234-1234",
         "email": "cema@gmail.com",
         "website": "www.alo.com.br",
@@ -45,7 +44,7 @@
         "telefone": "(11) 1234-1234",
         "email": "cema@gmail.com",
         "website": "www.alo.com.br",
-        "vacinas": ["Gripe"],
+        "vacinas": ["Gripe", "BCG-ID", "Hepatite B", "Pólio", "Pneumococos"],
         "location": {
           "type": "Point",
           "address": "R. Pedro Madureira, 601",
@@ -57,18 +56,147 @@
         }
       },
       "3": {
-        "nome": "Hospital qualquer",
-        "cnpj": "123",
-        "razao_social": "Hospital qualquer",
-        "vacinas": [],
+        "nome": "Hospital João Paulo IV",
+        "cnpj": "824.224.123",
+        "razao_social": "Hospital João Paulo IV",
+        "vacinas": ["Dupla Adulto", "Gripe", "Febre amarela", "BCG-ID", "Hepatite B", "Pólio", "Pneumococos"],
+		"telefone": "(11) 2224-3282",
+        "email": "posto@hospitaojoaopauloiv.com.br",
+        "website": "www.hospitaojoaopauloiv.com.br",
         "location": {
           "type": "Point",
-          "address": "R. Pedro Madureira, 601",
-          "cep": "02044-140",
+          "address": "R. Dr. Jorge Miranda, 43",
+          "cep": "01102-000",
           "cidade": "São Paulo",
           "estado": "SP",
-          "bairro": "Jardim São Paulo",
-          "coordinates": [-23.536948, -46.640221]
+          "bairro": "Luz",
+          "coordinates": [-23.5311297,-46.6337321]
+        }
+      },
+	  "4": {
+        "nome": "Posto público Tiradentes",
+        "cnpj": "888.888.888.888",
+        "razao_social": "Posto público Tiradentes",
+        "vacinas": ["Dupla Adulto", "Gripe", "Febre amarela", "Tetravalente", "Rotavírus Humano", "Pneumococos", "Meningococo C", "Triplice viral", "Triplice bacteriana"],
+		"telefone": "(11) 2982-2334",
+        "email": "postotiradentes@prefeitura.sp.com.br",
+        "website": "www.postotiradentes.prefeitura.sp.com.br",
+        "location": {
+          "type": "Point",
+          "address": "R. Afonso Pena, 99",
+          "cep": "01123-001",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "Bom Retiro",
+          "coordinates": [-23.530651, -46.634824]
+        }
+      },
+	  "5": {
+        "nome": "Hospital Nossa Senhora do Pari",
+        "cnpj": "888.888.888.888",
+        "razao_social": "Posto público Tiradentes",
+        "vacinas": ["Dupla Adulto", "Gripe", "Febre amarela", "BCG-ID", "Hepatite B", "Pólio", "Tetravalente"],
+		"telefone": "(11) 3322-6500",
+        "email": "hpari@gmail.com",
+        "website": "www.hpari.com.br",
+        "location": {
+          "type": "Point",
+          "address": "Rua Hannemann, 234",
+          "cep": "03031-040",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "Pari",
+          "coordinates": [-23.532912,-46.6344256]
+        }
+      },
+	  "6": {
+        "nome": "AMA Bom Retiro",
+        "cnpj": "888.888.888.888",
+        "razao_social": "AMA",
+        "vacinas": ["Dupla Adulto", "Pneumococos", "Meningococo C", "Triplice viral", "Triplice bacteriana"],
+		"telefone": "(11) 3329-8192",
+        "email": "-",
+        "website": "-",
+        "location": {
+          "type": "Point",
+          "address": "Rua Prates, 1101",
+          "cep": "01121-000",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "Bom Retiro",
+          "coordinates": [-23.5036344,-46.6342348]
+        }
+      },
+	   "7": {
+        "nome": "UBS Bom Retiro - Dr. Octavio Augusto Rodovalho",
+        "cnpj": "888.888.888.888",
+        "razao_social": "UBS Bom Retiro",
+        "vacinas": ["Dupla Adulto", "Gripe", "Febre amarela", "Tetravalente", "Rotavírus Humano", "BCG-ID" , "Triplice viral", "Triplice bacteriana"],
+		"telefone": "(11) 3324-9903",
+        "email": "ubscapital@sp.gov.br",
+        "website": "capital.sp.gov.br",
+        "location": {
+          "type": "Point",
+          "address": "R. Tenente Pena, 8",
+          "cep": "01127-020",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "Bom Retiro",
+          "coordinates": [-23.525941,-46.6426343]
+        }
+      },
+	  "8": {
+        "nome": "Hospital Notredame Intermédica",
+        "cnpj": "888.888.888.888",
+        "razao_social": "Hospital Notredame Intermédica",
+        "vacinas": ["Dupla Adulto", "Gripe", "Febre amarela", "Tetravalente", "Rotavírus Humano", "Pneumococos", "Triplice bacteriana"],
+		"telefone": "(11) 3823-7000",
+        "email": "notredameintermedica@intermedica.com.br",
+        "website": "intermedica.com.br",
+        "location": {
+          "type": "Point",
+          "address": "Praça Marechal Deodoro, 151",
+          "cep": "01150-011",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "Santa Cecília",
+          "coordinates": [-23.533823,-46.6499765]
+        }
+      },
+	  "9": {
+        "nome": "Santa Casa de São Paulo - Hospital Central",
+        "cnpj": "888.888.888.888",
+        "razao_social": "Santa Casa de São Paulo",
+        "vacinas": ["Dupla Adulto", "BCG-ID", "Gripe", "Febre amarela", "Tetravalente", "Rotavírus Humano", "Pneumococos", "Meningococo C", "Triplice viral"],
+		"telefone": "(11) 3823-7000",
+        "email": "santacasaspcentral@santacasasp.org.br",
+        "website": "santacasasp.org.br",
+        "location": {
+          "type": "Point",
+          "address": "R. Doutor Cesário Mota Júnior, 112 - Vila Buarque",
+          "cep": "01221-020",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "Higienópolis",
+          "coordinates": [-23.5452808,-46.6452977]
+        }
+      },
+	  "10": {
+        "nome": "Hospital Israel Menino Fiel",
+        "cnpj": "888.888.888.888",
+        "razao_social": "Hospital Israel Menino Fiel",
+        "vacinas": ["Dupla Adulto", "Gripe", "Febre amarela", "Tetravalente", "Triplice viral", "Triplice bacteriana", "Pólio", "Hepatite B"],
+		"telefone": "(11) 3823-7000",
+        "email": "contato@israelmeninofiel.com.br",
+        "website": "hospitalisraelmeninofiel.com.br",
+        "location": {
+          "type": "Point",
+          "address": "Av. Ipiranga, 984",
+          "cep": "01040-00",
+          "cidade": "São Paulo",
+          "estado": "SP",
+          "bairro": "República",
+          "coordinates": [-23.5415608,-46.6409391]
         }
       }
     }
