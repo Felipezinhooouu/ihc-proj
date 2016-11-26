@@ -87,7 +87,7 @@ router.post('/:id/aplicacoes', function(req, res, next){
     Aplicacao.create(req.body, function(error_create_aplic, new_aplic){
       card.aplicacoes.push(new_aplic);
       card.save(function(error_create_aplic_rel, post){
-        res.json(post);
+        res.json(new_aplic);
       });
     });
   });
