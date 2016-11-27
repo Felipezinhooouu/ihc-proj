@@ -78,7 +78,21 @@ function get_aplicacoes_default(idade, callback){
 function get_aplicacoes_default(idade, callback){
   var criteria = {}
   Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
-    callback(err, post);
+    var aplics = [];
+    post.forEach(function(aplic){
+      var newAplic = {};
+      newAplic.data = aplic.data;
+      newAplic.local = aplic.local;
+      newAplic.lote = aplic.lote;
+      newAplic.vacina = aplic.vacina;
+      newAplic.efetivada = aplic.efetivada;
+      newAplic.alarm = aplic.alarm;
+      newAplic.dose = aplic.dose;
+      Aplicacao.create(newAplic, function(err, savedAplic){
+          if(err) next(err);
+          callback(err, savedAplic);
+      });
+    });
   });
 }
 
@@ -87,32 +101,21 @@ router.post('/:id/cardenetas', function(req, res, next){
     Cardeneta.create(req.body, function(err, cardeneta){
           var date = new Date();
           var months = monthDiff(new Date(cardeneta.dt_nasc), date);
-          console.log(months);
-          get_aplicacoes_default(months, function(err, aplicacoes_default){
-            console.log(aplicacoes_default);
-            cardeneta.aplicacoes = aplicacoes_default;
-            cardeneta.save(function(err, saved_card){
-              if(err) next(err);
 
-              user.cardenetas.push(saved_card);
-              user.save(function(err, post){
-                res.json(post);
-              });
+          get_aplicacoes_default(months, function(err, saved_aplicacao){
+            cardeneta.aplicacoes.push(saved_aplicacao);
+            cardeneta.save(function(err, post){
+              if(err) next(err);
             });
+          });
+
+          user.cardenetas.push(cardeneta);
+          user.save(function(err, post){
+            res.json(post);
           });
       });
   });
 });
-//
-// router.get('/:id/pendings', function(req, res, next){
-//   User.findById(req.params.id, function(err, user){
-//     if(err) next(err);
-//     Share.find({_id: {$in: user.pendings}}).exec(function(err, pending){
-//       res.json(post);
-//       User.findById()
-//     })
-//   });
-// });
 
 router.post('/', function(req, res, next){
 
