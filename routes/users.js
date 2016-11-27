@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
 router.put('/:id', function(req, res, next){
   User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
     if(err) next(err);
+    user.set('password', req.body.password);
     user.save(req.params.id, function(err, updated_user){
       if(err) next(err);
       res.json(updated_user);
