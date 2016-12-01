@@ -68,12 +68,12 @@ function monthDiff(d1, d2){
   return months <= 0 ? 0 : months;
 }
 
-function get_aplicacoes_default(idade, callback){
-  var criteria = {}
-  Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
-    callback(err, post);
-  });
-}
+//function get_aplicacoes_default(idade, callback){
+//  var criteria = {}
+//  Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
+//    callback(err, post);
+//  });
+//}
 
 function get_aplicacoes_default(idade, callback){
   var criteria = {}
@@ -101,18 +101,38 @@ router.post('/:id/cardenetas', function(req, res, next){
     Cardeneta.create(req.body, function(err, cardeneta){
           var date = new Date();
           var months = monthDiff(new Date(cardeneta.dt_nasc), date);
+      
+      
+          Aplicacao.find({idade_minima_meses: {$gte: idade}}, function(err, post){
+              var aplics = [];
+              post.forEach(function(aplic){
+                var newAplic = {};
+                newAplic.data = aplic.data;
+                newAplic.local = aplic.local;
+                newAplic.lote = aplic.lote;
+                newAplic.vacina = aplic.vacina;
+                newAplic.efetivada = aplic.efetivada;
+                newAplic.alarm = aplic.alarm;
+                newAplic.dose = aplic.dose;
+                newAplic.idade_minima_meses = 0;
+                Aplicacao.create(newAplic, function(err, savedAplic){
+                    cardeneta.aplicacoes.push(savedAplic);
+                    cardeneta.save(function(err, post){
+                      if(err) next(err);
+                    });
+                });
+              });
+            user.cardenetas.push(cardeneta);
+            user.save(function(err, post){
+              res.json(post);
+            });
+            });
 
           get_aplicacoes_default(months, function(err, saved_aplicacao){
-            cardeneta.aplicacoes.push(saved_aplicacao);
-            cardeneta.save(function(err, post){
-              if(err) next(err);
-            });
+            
           });
 
-          user.cardenetas.push(cardeneta);
-          user.save(function(err, post){
-            res.json(post);
-          });
+          
       });
   });
 });
