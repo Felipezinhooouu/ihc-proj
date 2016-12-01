@@ -100,18 +100,18 @@ router.post('/:id/cardenetas', function(req, res, next){
     Cardeneta.create(req.body, function(err, cardeneta){
           var date = new Date();
           var months = monthDiff(new Date(cardeneta.dt_nasc), date);
-          
-          console.log(user.cardenetas);
-           user.cardenetas.push(cardeneta);
-           user.save(function(err, saved_user){
-                get_aplicacoes_default(months, function(err, saved_aplicacao){
-                  cardeneta.aplicacoes.push(saved_aplicacao);
-                  cardeneta.save(function(err, post){
-                    if(err) next(err);
-                    res.json(saved_user);
-                  });
-              });
-          });  
+
+          get_aplicacoes_default(months, function(err, saved_aplicacao){
+            cardeneta.aplicacoes.push(saved_aplicacao);
+            cardeneta.save(function(err, post){
+              if(err) next(err);
+            });
+          });
+
+          user.cardenetas.push(cardeneta);
+          user.save(function(err, post){
+            res.json(post);
+          });
       });
   });
 });
