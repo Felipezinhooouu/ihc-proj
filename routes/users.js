@@ -111,7 +111,7 @@ router.post('/:id/cardenetas', function(req, res, next){
               if(err) next(err);
             });
           });
-          if(user.cardenetas === undefined)
+          if(user.cardenetas === undefined || user.cardenetas === null || user.cardenetas.length < 1)
             user.cardenetas = [];
           user.cardenetas.push(cardeneta);
           user.save(function(err, post){
