@@ -89,7 +89,6 @@ function get_aplicacoes_default(idade, callback){
       newAplic.alarm = aplic.alarm;
       newAplic.dose = aplic.dose;
       Aplicacao.create(newAplic, function(err, savedAplic){
-          if(err) next(err);
           callback(err, savedAplic);
       });
     });
@@ -111,7 +110,7 @@ router.post('/:id/cardenetas', function(req, res, next){
                     if(err) next(err);
                     res.json(saved_user);
                   });
-          });
+              });
           });  
       });
   });
