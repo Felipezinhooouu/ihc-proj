@@ -99,30 +99,20 @@ function get_aplicacoes_default(idade, callback){
 router.post('/:id/cardenetas', function(req, res, next){
   User.findById(req.params.id, function(err, user){
     Cardeneta.create(req.body, function(err, cardeneta){
-          if(err) next(err);
-      
-          if(user.cardenetas === undefined || user.cardenetas === null || user.cardenetas.length < 1)
-                  user.cardenetas = [];
-                user.cardenetas.push(cardeneta);
-                user.save(function(err, post){
-                  res.json(post);
-                });
-            console.log(user.cardenetas);
-      
           var date = new Date();
           var months = monthDiff(new Date(cardeneta.dt_nasc), date);
 
           get_aplicacoes_default(months, function(err, saved_aplicacao){
-            if(cardeneta.aplicacoes === undefined || cardeneta.aplicacoes === null || cardeneta.aplicacoes.length < 1)
-              cardeneta.aplicacoes = [];
             cardeneta.aplicacoes.push(saved_aplicacao);
             cardeneta.save(function(err, post){
               if(err) next(err);
             });
-            
-            
           });
-          
+
+          user.cardenetas.push(cardeneta);
+          user.save(function(err, post){
+            res.json(post);
+          });
       });
   });
 });
