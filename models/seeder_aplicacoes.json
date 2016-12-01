@@ -9,7 +9,6 @@
       "_model": "Aplicacao",
       "0": {
         "data":  null,
-        "lote"
         "local": "qualquer",
         "dose": 0,
         "idade_minima_meses": 0,
@@ -139,7 +138,7 @@
         "local": "qualquer",
         "dose": 1,
         "idade_minima_meses": 12,
-        "vacina": "Tríplice viral"
+        "vacina": "Triplice viral"
       },
       "19": {
         "data":  null,
@@ -160,7 +159,7 @@
         "local": "qualquer",
         "dose": 1,
         "idade_minima_meses": 15,
-        "vacina": "Tríplice bacteriana"
+        "vacina": "Triplice bacteriana"
       },
       "22": {
         "data":  null,
@@ -188,7 +187,7 @@
         "local": "qualquer",
         "dose": 0,
         "idade_minima_meses": 156,
-        "vacina": "Tríplice viral"
+        "vacina": "Triplice viral"
       },
       "26": {
         "data":  null,
@@ -258,7 +257,7 @@
         "local": "qualquer",
         "dose": 0,
         "idade_minima_meses": 740,
-        "vacina": "Tríplice viral"
+        "vacina": "Triplice viral"
       },
       "36": {
         "data":  null,
