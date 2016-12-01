@@ -88,7 +88,7 @@ function get_aplicacoes_default(idade, callback){
       newAplic.efetivada = aplic.efetivada;
       newAplic.alarm = aplic.alarm;
       newAplic.dose = aplic.dose;
-      newAplic.idade_minima_meses = 999;
+      newAplic.idade_minima_meses = 0;
       Aplicacao.create(newAplic, function(err, savedAplic){
           callback(err, savedAplic);
       });
