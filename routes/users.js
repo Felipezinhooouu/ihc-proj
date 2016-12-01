@@ -108,7 +108,7 @@ router.post('/:id/cardenetas', function(req, res, next){
               if(err) next(err);
             });
           });
-
+          console.log(user.cardenetas);
           user.cardenetas.push(cardeneta);
           user.save(function(err, post){
             res.json(post);
