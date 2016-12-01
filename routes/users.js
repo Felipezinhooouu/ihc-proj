@@ -99,16 +99,19 @@ function get_aplicacoes_default(idade, callback){
 router.post('/:id/cardenetas', function(req, res, next){
   User.findById(req.params.id, function(err, user){
     Cardeneta.create(req.body, function(err, cardeneta){
+          if(err) next(err);
+      
           var date = new Date();
           var months = monthDiff(new Date(cardeneta.dt_nasc), date);
 
           get_aplicacoes_default(months, function(err, saved_aplicacao){
+            cardeneta.aplicacoes = [];
             cardeneta.aplicacoes.push(saved_aplicacao);
             cardeneta.save(function(err, post){
               if(err) next(err);
             });
           });
-
+          user.cardenetas = [];
           user.cardenetas.push(cardeneta);
           user.save(function(err, post){
             res.json(post);
