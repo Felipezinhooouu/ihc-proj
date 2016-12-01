@@ -51,7 +51,10 @@ router.delete('/:id', function(req, res, next){
    User.find({_id: {$in: card['users']}}, function(err, users){
       users.forEach(function(user){
         user.cardenetas.pull(card);
+        console.log(user);
+        console.log(user.cardenetas);
       });
+     
       card.remove(function(err_delete, removed){
         res.json({message: 'deletado com sucesso!'});
       });
