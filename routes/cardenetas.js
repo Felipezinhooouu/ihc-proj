@@ -50,7 +50,7 @@ router.delete('/:id', function(req, res, next){
     
    User.find({_id: {$in: card['users']}}, function(err, users){
       users.forEach(function(user){
-        user.cardenetas.pull(card);
+        user.cardenetas = user.cardenetas.filter(function(returned){return returned !== card['_id']});
         console.log(user);
         console.log(user.cardenetas);
       });
