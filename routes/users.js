@@ -101,6 +101,14 @@ router.post('/:id/cardenetas', function(req, res, next){
     Cardeneta.create(req.body, function(err, cardeneta){
           if(err) next(err);
       
+          if(user.cardenetas === undefined || user.cardenetas === null || user.cardenetas.length < 1)
+                  user.cardenetas = [];
+                user.cardenetas.push(cardeneta);
+                user.save(function(err, post){
+                  res.json(post);
+                });
+            console.log(user.cardenetas);
+      
           var date = new Date();
           var months = monthDiff(new Date(cardeneta.dt_nasc), date);
 
@@ -111,14 +119,10 @@ router.post('/:id/cardenetas', function(req, res, next){
             cardeneta.save(function(err, post){
               if(err) next(err);
             });
+            
+            
           });
-          console.log(user.cardenetas);
-          if(user.cardenetas === undefined || user.cardenetas === null || user.cardenetas.length < 1)
-            user.cardenetas = [];
-          user.cardenetas.push(cardeneta);
-          user.save(function(err, post){
-            res.json(post);
-          });
+          
       });
   });
 });
