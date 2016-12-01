@@ -105,7 +105,8 @@ router.post('/:id/cardenetas', function(req, res, next){
           var months = monthDiff(new Date(cardeneta.dt_nasc), date);
 
           get_aplicacoes_default(months, function(err, saved_aplicacao){
-            cardeneta.aplicacoes = [];
+            if(cardeneta.aplicacoes === undefined || cardeneta.aplicacoes === null || cardeneta.aplicacoes.length < 1)
+              cardeneta.aplicacoes = [];
             cardeneta.aplicacoes.push(saved_aplicacao);
             cardeneta.save(function(err, post){
               if(err) next(err);
