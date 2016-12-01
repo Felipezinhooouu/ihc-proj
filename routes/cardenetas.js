@@ -47,9 +47,16 @@ router.put('/:id', function(req, res, next){
 
 router.delete('/:id', function(req, res, next){
   Cardeneta.findById(req.params.id, function(err, card){
-    card.remove(function(err_delete, removed){
-      res.json({message: 'deletado com sucesso!'});
+    
+   User.find({_id: {$in: card['users']}}, function(err, users){
+      users.forEach(function(user){
+        user.cardenetas.pull(card);
+      });
+      card.remove(function(err_delete, removed){
+        res.json({message: 'deletado com sucesso!'});
+      });
     });
+
   });
 });
 
