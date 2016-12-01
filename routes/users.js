@@ -106,13 +106,14 @@ router.post('/:id/cardenetas', function(req, res, next){
             cardeneta.aplicacoes.push(saved_aplicacao);
             cardeneta.save(function(err, post){
               if(err) next(err);
+              console.log(user.cardenetas);
+              user.cardenetas.push(cardeneta);
+              user.save(function(err, post){
+                res.json(post);
+              });
             });
           });
-          console.log(user.cardenetas);
-          user.cardenetas.push(cardeneta);
-          user.save(function(err, post){
-            res.json(post);
-          });
+          
       });
   });
 });
