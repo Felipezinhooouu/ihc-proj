@@ -111,6 +111,7 @@ router.post('/:id/cardenetas', function(req, res, next){
               if(err) next(err);
             });
           });
+          console.log(user.cardenetas);
           if(user.cardenetas === undefined || user.cardenetas === null || user.cardenetas.length < 1)
             user.cardenetas = [];
           user.cardenetas.push(cardeneta);
